@@ -1,5 +1,5 @@
 const fs = require('fs');
-const HTTP_OK_STATUS = require('./httpStatus');
+const { HTTP_OK_STATUS } = require('./httpStatus');
 
 module.exports = (_request, response) => {
   const array = JSON.parse(fs.readFileSync('./talker.json', 'utf8'));
