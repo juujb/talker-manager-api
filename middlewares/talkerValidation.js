@@ -49,11 +49,16 @@ const ageCheck = (request, response, next) => {
 
 const talkCheck = (request, response, next) => {
   const { talk } = request.body;
-  const dateRegex = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
-  if (!talk || !talk.watchedAt || !talk.rate) {
+  if (!talk || !talk.watchedAt || talk.rate === undefined) {
     return response.status(HTTP_BAD_REQUEST_STATUS).json(NO_TALK);
   }
-  if (!dateRegex.test(talk.watchedAt)) {
+  next();
+};
+
+const dateCheck = (request, response, next) => {
+  const { talk: { watchedAt } } = request.body;
+  const dateRegex = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
+  if (!dateRegex.test(watchedAt)) {
     return response.status(HTTP_BAD_REQUEST_STATUS).json(DATE_CHECK);
   }
   next();
@@ -67,4 +72,4 @@ const rateCheck = (request, response, next) => {
   next();
 };
 
-module.exports = { tokenCheck, nameCheck, ageCheck, talkCheck, rateCheck };
+module.exports = { tokenCheck, nameCheck, ageCheck, talkCheck, dateCheck, rateCheck };
