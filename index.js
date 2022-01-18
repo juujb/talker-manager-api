@@ -4,10 +4,13 @@ const bodyParser = require('body-parser');
 const getAllTalkers = require('./middlewares/getAllTalkers');
 const getTalkerById = require('./middlewares/getTalkerById');
 const login = require('./middlewares/login');
-const {
-  tokenCheck, nameCheck, ageCheck, talkCheck, rateCheck,
-} = require('./middlewares/talkerValidation');
 const createTalker = require('./middlewares/createTalker');
+const editTalker = require('./middlewares/editTalker');
+const deleteTalker = require('./middlewares/deleteTalker');
+
+const {
+  tokenCheck, nameCheck, ageCheck, talkCheck, rateCheck, dateCheck,
+} = require('./middlewares/talkerValidation');
 
 const app = express();
 app.use(bodyParser.json());
@@ -28,11 +31,26 @@ app.route('/talker')
     nameCheck,
     ageCheck,
     talkCheck,
+    dateCheck,
     rateCheck,
     createTalker,
 );
 
-app.get('/talker/:id', getTalkerById);
+app.route('/talker/:id')
+  .get(getTalkerById)
+  .put(
+    tokenCheck,
+    nameCheck,
+    talkCheck,
+    ageCheck,
+    rateCheck,
+    dateCheck,
+    editTalker,
+)
+  .delete(
+    tokenCheck,
+    deleteTalker,
+  );
 
 app.post('/login', login);
 
