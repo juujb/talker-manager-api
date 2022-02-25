@@ -10,7 +10,7 @@ Desafio:
 
 
 
-Essa API, possui alguns endpoints sempre pensando no modelo de negócio. A ideia dessa API é criar um api que gerencie pelestras.Nessa API o usuário será permitido manipular as palestras e palestrantes.
+Essa API, possui alguns endpoints sempre pensando no modelo de negócio. A ideia dessa API é criar um api que gerencie pelestras. O usuário poderá manipular as palestras e palestrantes.
 
 
 # Ferramentas usadas 🧰
