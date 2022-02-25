@@ -27,13 +27,9 @@ Essa API, possui alguns endpoints sempre pensando no modelo de negócio. A ideia
 
 2. Instale as dependências
   * `npm install`
-```
-
----
 
 3. Inicie o projeto
   * `npm start `
   
 4. Acesse as rotas através de softwares como Postman e Insomnia através do endereço:
   * `http://localhost:3000`
----
