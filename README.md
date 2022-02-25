@@ -2,6 +2,7 @@
 # Projeto Talker Manager! :coin:
 
 Nesse projeto, o objetivo era desenvolver um **CRUD** (_Create, Read, Update_ e _Delete_) de palestrantes, no formato de uma _API_, utilizando _Express_ e criar alguns _endpoints_ que irão ler e escrever em um arquivo JSON, utilizando o módulo **fs**.
+
 Desafio:
 - Escrever APIs utilizando Node e Express;
 - Entender a estrutura de uma aplicação Express e como organizar seu código;
